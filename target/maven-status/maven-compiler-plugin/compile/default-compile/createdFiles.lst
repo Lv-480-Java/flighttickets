@@ -1,0 +1,4 @@
+com\softserve\controller\Client.class
+com\softserve\dao\DaoClient.class
+com\softserve\Application.class
+com\softserve\controller\ControllerServlet.class
