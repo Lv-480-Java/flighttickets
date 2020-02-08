@@ -1,5 +1,8 @@
 package com.softserve.controller;
+
 import com.softserve.dao.DaoClient;
+import com.softserve.dao.DatabaseConnection;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,22 +11,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class ControllerServlet extends HttpServlet {
+public class ServletRegister extends HttpServlet  {
 
-    private DaoClient daoClient;
+    private Service service;
 
-    public void init() {
-        String jdbcURL = getServletContext().getInitParameter("jdbc:mysql://localhost:8888/flighttickets?" + "serverTimezone=UTC&amp" +
-                "useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false");
-        String jdbcUsername = getServletContext().getInitParameter("root");
-        String jdbcPassword = getServletContext().getInitParameter("boris21352");
 
-        daoClient = new DaoClient(jdbcURL, jdbcUsername, jdbcPassword);
-
+    public ServletRegister() {
+        this.service = new Service();
     }
+
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        new ServletRegister();
         doGet(request, response);
     }
 
@@ -33,11 +34,8 @@ public class ControllerServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         try {
             switch (action) {
-                case "/new":
-                    showNewForm(request, response);
-                    break;
-                case "/insert":
-                    addClient(request, response);
+                case "/index":
+                    connectService(request, response);
                     break;
             }
         } catch (SQLException ex) {
@@ -45,22 +43,20 @@ public class ControllerServlet extends HttpServlet {
         }
     }
 
-    private void showNewForm(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("client.jsp");
-        dispatcher.forward(request, response);
-    }
+    private void connectService(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
 
-    private void addClient(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
         String email = request.getParameter("email");
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String pass = request.getParameter("pass");
 
         Client clientRegister = new Client(firstName, lastName, pass, email);
-        daoClient.addClient(clientRegister);
 
+        service.insertClient(clientRegister);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("root.jsp");
+        requestDispatcher.forward(request, response);
     }
 
 }

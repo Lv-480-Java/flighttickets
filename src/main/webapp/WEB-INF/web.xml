@@ -4,7 +4,7 @@
 	      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
- <display-name>Books Management Web Application</display-name>
+ <display-name>Flighttickets</display-name>
 
     <context-param>
         <param-name>jdbcURL</param-name>
@@ -22,13 +22,22 @@
     </context-param>
 
     <servlet>
-        <servlet-name>ControllerServlet</servlet-name>
-        <servlet-class>com.softserve.controller.ControllerServlet</servlet-class>
+    <servlet-name>Servletregister</servlet-name>
+    <servlet-class>com.softserve.controller.ServletRegister</servlet-class>
+</servlet>
+    <servlet>
+        <servlet-name>Servletroot</servlet-name>
+        <servlet-class>com.softserve.controller.ServletOrder</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>ControllerServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>Servletregister</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Servletroot</servlet-name>
+        <url-pattern>/root</url-pattern>
     </servlet-mapping>
 
 </web-app>
