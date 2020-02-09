@@ -1,8 +1,5 @@
 package com.softserve.controller;
 
-import com.softserve.dao.DaoClient;
-import com.softserve.dao.DatabaseConnection;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,16 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class ServletRegister extends HttpServlet  {
-
-    private Service service;
-
+public class ServletRegister extends HttpServlet {
+    boolean flag;
+    public static int state=0;
+    private Service serviceServlet;
 
     public ServletRegister() {
-        this.service = new Service();
+        this.serviceServlet = new Service();
     }
-
-
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -53,10 +48,16 @@ public class ServletRegister extends HttpServlet  {
 
         Client clientRegister = new Client(firstName, lastName, pass, email);
 
-        service.insertClient(clientRegister);
+        flag = serviceServlet.insertClient(clientRegister);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("root.jsp");
-        requestDispatcher.forward(request, response);
+        if(flag==true) {
+
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("root.jsp");
+            requestDispatcher.forward(request, response);
+        }else {
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("notvalid.jsp");
+            requestDispatcher.forward(request, response);
+        }
+
     }
-
 }

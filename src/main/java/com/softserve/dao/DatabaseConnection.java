@@ -7,7 +7,7 @@ public class DatabaseConnection {
     private Connection connection;
     private  static DatabaseConnection instance;
 
-public DatabaseConnection() throws SQLException{
+private DatabaseConnection() throws SQLException{
     try {
         Class.forName("com.mysql.jdbc.Driver");
         this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/flighttickets?" + "serverTimezone=UTC&amp" +
@@ -29,7 +29,6 @@ public DatabaseConnection() throws SQLException{
 
         return instance;
     }
-
 
 }
 
