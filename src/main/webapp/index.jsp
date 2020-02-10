@@ -19,14 +19,14 @@
         <table border="1" cellpadding="5">
             <caption>
             </caption>
-            <c:if test="${client != null}">
-                <input type="hidden" name="id" value="<c:out value='${client.id}' />" />
+            <c:if test="${user != null}">
+                <input type="hidden" name="id" value="<c:out value='${user.id}' />" />
             </c:if>
             <tr>
                 <th>Email: </th>
                 <td>
                     <input type="text" name="email" size="45"
-                           value="<c:out value='${client.email}' />"
+                           value="<c:out value='${user.email}' />"
                     />
                 </td>
             </tr>
@@ -34,7 +34,7 @@
                 <th>Password: </th>
                 <td>
                     <input type="text" name="pass" size="45"
-                           value="<c:out value='${client.pass}' />"
+                           value="<c:out value='${user.pass}' />"
                     />
                 </td>
             </tr>
@@ -42,14 +42,14 @@
                 <th>FirstName: </th>
                 <td>
                     <input type="text" name="firstName" size="45"
-                           value="<c:out value='${client.firstName}' />"
+                           value="<c:out value='${user.firstName}' />"
                     />
                 </td>
             </tr>
             <th>LastName: </th>
             <td>
                 <input type="text" name="lastName" size="45"
-                       value="<c:out value='${client.lastName}' />"
+                       value="<c:out value='${user.lastName}' />"
                 />
             </td>
             </tr>
@@ -62,8 +62,8 @@
     </form>
 </div>
 </body>
-</html>
-<html>
+
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
@@ -82,12 +82,14 @@
     <div class="col-xs-12 col-sm-8 col-md-4 col-lg-4 col-centered">
         <div class="jumbotron">
             <h3>Please login</h3>
-            <form action="Dashboard.jsp">
+            <form action="login" method="post">
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Enter Username">
+                    <input type="text" class="form-control"  value="<c:out value='${user.email}' />" placeholder="Enter email">
+
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Enter password">
+                    <input type="text"  value="<c:out value='${user.pass}' />" class="form-control" placeholder="Enter password">
+
                 </div>
                 <div class="custom-checkbox">
                     <label><input type="checkbox"> Remember me</label>

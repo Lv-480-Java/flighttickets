@@ -1,15 +1,20 @@
-package com.softserve.controller;
+package com.softserve.entity;
 
 import java.util.Objects;
 
-public class Client {
+public class User {
 private int id;
 private String firstName;
 private String lastName;
 private String pass;
 private String email;
 
-    public Client( String firstName, String lastName, String pass,String email) {
+    public User(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public User(String firstName, String lastName, String pass, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.pass = pass;
@@ -60,12 +65,12 @@ private String email;
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Client client = (Client) o;
-        return id == client.id &&
-                Objects.equals(firstName, client.firstName) &&
-                Objects.equals(lastName, client.lastName) &&
-                Objects.equals(pass, client.pass) &&
-                Objects.equals(email, client.email);
+        User user = (User) o;
+        return id == user.id &&
+                Objects.equals(firstName, user.firstName) &&
+                Objects.equals(lastName, user.lastName) &&
+                Objects.equals(pass, user.pass) &&
+                Objects.equals(email, user.email);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.softserve.controller;
+package com.softserve.entity;
 import java.util.Objects;
 
 public class Root {

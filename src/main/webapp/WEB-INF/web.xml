@@ -29,6 +29,10 @@
         <servlet-name>Servletroot</servlet-name>
         <servlet-class>com.softserve.controller.ServletOrder</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Servletlogin</servlet-name>
+        <servlet-class>com.softserve.controller.ServletLogin</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>Servletregister</servlet-name>
@@ -39,5 +43,8 @@
         <servlet-name>Servletroot</servlet-name>
         <url-pattern>/root</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>Servletlogin</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
 </web-app>

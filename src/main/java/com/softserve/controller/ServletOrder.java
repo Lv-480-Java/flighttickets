@@ -1,6 +1,6 @@
 package com.softserve.controller;
 
-import com.softserve.dao.DaoClient;
+import com.softserve.dao.DaoUser;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +11,7 @@ import java.io.IOException;
 
 
 public class ServletOrder extends HttpServlet {
-    private DaoClient daoClient;
+    private DaoUser daoUser;
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
