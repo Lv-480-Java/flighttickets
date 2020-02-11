@@ -1,5 +1,7 @@
 package com.softserve.entity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class User {
@@ -8,6 +10,14 @@ private String firstName;
 private String lastName;
 private String pass;
 private String email;
+public List<User> checkDuplicate=new ArrayList<>();
+
+    public User(){
+    }
+
+    public User(String email) {
+        this.email = email;
+    }
 
     public User(String firstName, String lastName) {
         this.firstName = firstName;
@@ -39,6 +49,14 @@ private String email;
 
     public String getEmail() {
         return email;
+    }
+
+    public List<User> getCheckDuplicate() {
+        return checkDuplicate;
+    }
+
+    public void setCheckDuplicate() {
+        this.checkDuplicate = checkDuplicate;
     }
 
     public void setId(int id) {

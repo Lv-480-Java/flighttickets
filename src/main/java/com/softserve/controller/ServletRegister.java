@@ -1,6 +1,7 @@
 package com.softserve.controller;
 
 import com.softserve.entity.User;
+import com.softserve.exceptions.DuplicateException;
 import com.softserve.exceptions.ValidationException;
 import com.softserve.model.Service;
 
@@ -52,6 +53,7 @@ public class ServletRegister extends HttpServlet {
 
         User userRegister = new User(firstName, lastName, pass, email);
         try {
+            serviceServlet.chekcClient(userRegister);
             serviceServlet.insertClient(userRegister);
             HttpSession session = request.getSession();
             session.setAttribute("user", userRegister);
@@ -60,6 +62,9 @@ public class ServletRegister extends HttpServlet {
 
         } catch (ValidationException userValidator) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("notvalid.jsp");
+            requestDispatcher.forward(request, response);
+        }catch (DuplicateException duplicateUser){
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("alreadyRegistered.jsp");
             requestDispatcher.forward(request, response);
         }
 
