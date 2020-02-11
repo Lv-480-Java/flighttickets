@@ -11,7 +11,7 @@
     <h1>Welcome to flight tickets order panel</h1>
     <b>${user.firstName} (${user.lastName})</b>
     <br><br>
-    <a href="/logout">Logout</a>
+    <a href="http://localhost:8080/flighttickets_war_exploded/">Logout</a>
 </div>
 </body>
 </html>

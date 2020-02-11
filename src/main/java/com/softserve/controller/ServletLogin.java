@@ -27,7 +27,7 @@ public class ServletLogin extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("pass");
         try {
-           User user= serviceServlet.getLogin(email, password);
+            User user= serviceServlet.getLogin(email, password);
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             RequestDispatcher dispatcher = request.getRequestDispatcher("loginSuccess.jsp");

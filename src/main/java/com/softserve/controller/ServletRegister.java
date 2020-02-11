@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -52,8 +53,11 @@ public class ServletRegister extends HttpServlet {
         User userRegister = new User(firstName, lastName, pass, email);
         try {
             serviceServlet.insertClient(userRegister);
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("root.jsp");
+            HttpSession session = request.getSession();
+            session.setAttribute("user", userRegister);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("loginSuccess.jsp");
             requestDispatcher.forward(request, response);
+
         } catch (ValidationException userValidator) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("notvalid.jsp");
             requestDispatcher.forward(request, response);

@@ -17,16 +17,12 @@
 <div align="center">
     <form action="index" method="post">
         <table border="1" cellpadding="5">
-            <caption>
-            </caption>
-            <c:if test="${user != null}">
-                <input type="hidden" name="id" value="<c:out value='${user.id}' />" />
-            </c:if>
+
             <tr>
                 <th>Email: </th>
                 <td>
                     <input type="text" name="email" size="45"
-                           value="<c:out value='${user.email}' />"
+
                     />
                 </td>
             </tr>
@@ -34,7 +30,7 @@
                 <th>Password: </th>
                 <td>
                     <input type="text" name="pass" size="45"
-                           value="<c:out value='${user.pass}' />"
+
                     />
                 </td>
             </tr>
@@ -42,14 +38,14 @@
                 <th>FirstName: </th>
                 <td>
                     <input type="text" name="firstName" size="45"
-                           value="<c:out value='${user.firstName}' />"
+
                     />
                 </td>
             </tr>
             <th>LastName: </th>
             <td>
                 <input type="text" name="lastName" size="45"
-                       value="<c:out value='${user.lastName}' />"
+
                 />
             </td>
             </tr>
@@ -62,7 +58,6 @@
     </form>
 </div>
 </body>
-
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -84,11 +79,11 @@
             <h3>Please login</h3>
             <form action="login" method="post">
                 <div class="form-group">
-                    <input type="text" class="form-control"  value="<c:out value='${user.email}' />" placeholder="Enter email">
+                    <input name="email" type="text" class="form-control"   placeholder="Enter email">
 
                 </div>
                 <div class="form-group">
-                    <input type="text"  value="<c:out value='${user.pass}' />" class="form-control" placeholder="Enter password">
+                    <input name="pass" type="text"   class="form-control" placeholder="Enter password">
 
                 </div>
                 <div class="custom-checkbox">
