@@ -1,5 +1,6 @@
 package com.softserve.controller;
 
+import com.softserve.entity.Root;
 import com.softserve.entity.User;
 import com.softserve.exceptions.DuplicateException;
 import com.softserve.exceptions.ValidationException;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 public class ServletRegister extends HttpServlet {
 
@@ -55,8 +57,12 @@ public class ServletRegister extends HttpServlet {
         try {
             serviceServlet.chekcClient(userRegister);
             serviceServlet.insertClient(userRegister);
+            List<Root> rootList=serviceServlet.getDeparutres();
+
+            request.setAttribute("rootList",rootList);
             HttpSession session = request.getSession();
             session.setAttribute("user", userRegister);
+
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("loginSuccess.jsp");
             requestDispatcher.forward(request, response);
 

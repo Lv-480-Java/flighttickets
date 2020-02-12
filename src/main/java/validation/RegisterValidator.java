@@ -7,7 +7,9 @@ import com.softserve.exceptions.DuplicateException;
 public class RegisterValidator implements DuplicateEmail {
     @Override
     public void validate(User front, User back) {
-        if(front.getEmail().equals(back.getEmail())){
+        if(back==null){
+            return;
+        }else if (front.getEmail().equals(back.getEmail())){
             throw new DuplicateException();
         }
     }

@@ -2,14 +2,20 @@ package com.softserve.entity;
 import java.util.Objects;
 
 public class Root {
+    private int id_root;
     private String from_Location;
     private String to_Location;
     private int distance;
 
-    public Root(String from_Location, String to_Location, int distance) {
+    public Root(int id_root,String from_Location, String to_Location, int distance) {
+        this.id_root=id_root;
         this.from_Location = from_Location;
         this.to_Location = to_Location;
         this.distance = distance;
+    }
+
+    public int getId_root() {
+        return id_root;
     }
 
     public String getFrom_Location() {
@@ -34,6 +40,10 @@ public class Root {
 
     public void setDistance(int distance) {
         this.distance = distance;
+    }
+
+    public void setId_root(int id_root) {
+        this.id_root = id_root;
     }
 
     @Override
