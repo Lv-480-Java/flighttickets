@@ -30,7 +30,7 @@ public class Service {
         registerValidator = new RegisterValidator();
         daoCheckUser = new DaoCheckUser();
         User checkEmail = daoCheckUser.checkRegisterEmail(userFromRegistration);
-        registerValidator.validate(userFromRegistration, checkEmail);
+        registerValidator.validate(checkEmail);
     }
 
     public void insertClient(User user) throws SQLException, ValidationException {

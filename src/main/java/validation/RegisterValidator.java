@@ -4,12 +4,10 @@ import com.softserve.entity.User;
 import com.softserve.exceptions.DuplicateException;
 
 
-public class RegisterValidator implements DuplicateEmail {
+public class RegisterValidator implements Validator {
     @Override
-    public void validate(User front, User back) {
-        if(back==null){
-            return;
-        }else if (front.getEmail().equals(back.getEmail())){
+    public void validate(User back) {
+        if(back!=null){
             throw new DuplicateException();
         }
     }
