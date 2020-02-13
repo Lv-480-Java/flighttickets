@@ -7,7 +7,13 @@ public class Root {
     private String to_Location;
     private int distance;
 
-    public Root(int id_root,String from_Location, String to_Location, int distance) {
+    public Root(String from_Location, String to_Location, int distance) {
+        this.from_Location = from_Location;
+        this.to_Location = to_Location;
+        this.distance = distance;
+    }
+
+    public Root(int id_root, String from_Location, String to_Location, int distance) {
         this.id_root=id_root;
         this.from_Location = from_Location;
         this.to_Location = to_Location;

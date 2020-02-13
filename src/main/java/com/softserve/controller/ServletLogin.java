@@ -23,7 +23,12 @@ public class ServletLogin extends HttpServlet {
         this.serviceServlet = new Service();
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         new ServletRegister();
         String email = request.getParameter("email");

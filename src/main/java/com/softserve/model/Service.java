@@ -1,14 +1,15 @@
 package com.softserve.model;
-import com.softserve.dao.DaoCheckUser;
-import com.softserve.dao.DaoGetRoots;
-import com.softserve.dao.DaoLogin;
-import com.softserve.dao.DaoUser;
+
+import com.softserve.dao.*;
 import com.softserve.entity.Root;
 import com.softserve.entity.User;
+import com.softserve.exceptions.MissingRootException;
 import com.softserve.exceptions.ValidationException;
 import validation.LoginValidator;
 import validation.RegisterValidator;
+import validation.RootValidator;
 import validation.UserValidator;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -21,6 +22,8 @@ public class Service {
     private DaoCheckUser daoCheckUser;
     private RegisterValidator registerValidator;
     private DaoGetRoots daoGetRoots;
+    private DaoGetDirectRoot daoGetDirectRoot;
+    private RootValidator rootValidator;
 
     public Service() {
 
@@ -52,5 +55,13 @@ public class Service {
         daoGetRoots = new DaoGetRoots();
         List<Root> rootList = daoGetRoots.getRoots();
         return rootList;
+    }
+
+    public Root takeDirectRoot(String from_Location, String to_Location) throws SQLException, MissingRootException {
+        daoGetDirectRoot = new DaoGetDirectRoot();
+        rootValidator=new RootValidator();
+        Root root = daoGetDirectRoot.getDirectRoot(from_Location, to_Location);
+        rootValidator.validate(root);
+        return root;
     }
 }
