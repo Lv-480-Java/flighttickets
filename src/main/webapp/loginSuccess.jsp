@@ -19,39 +19,6 @@
 </div>
 </body>
 </html>
-<html>
-<head>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <title>Tickets</title>
-    <title>Order tickets</title>
-</head>
-<body>
-<center>
-    <h1>Departures</h1>
-</center>
-<div align="center">
-    <table border="1" cellpadding="5">
-        <tr>
-            <th>ID</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Distance</th>
-        </tr>
-        <c:forEach var="root" items="${rootList}">
-            <tr>
-                <td><c:out value="${root.id_root}" /></td>
-                <td><c:out value="${root.from_Location}" /></td>
-                <td><c:out value="${root.to_Location}" /></td>
-                <td><c:out value="${root.distance}" /></td>
-
-            </tr>
-        </c:forEach>
-    </table>
-</div>
-</body>
-</html>
-<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -78,25 +45,42 @@
     <![endif]-->
 
 </head>
-
 <body>
 <div id="booking" class="section">
     <div class="section-center">
         <div class="container">
             <div class="row">
+                <div class="bs-example">
+                    <table class="table table-dark">
+                        <thead>
+                        <tr>
+                            <th>City</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="route" items="${routeList}">
+                            <tr>
+                                <td><c:out value="${route}"/></td>
+
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="booking-form">
                     <form  action="order" method="POST">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Flying from</span>
-                                    <input class="form-control" type="text" name="from_Location" placeholder="City or airport">
+                                    <input class="form-control" type="text" name="from_Location" placeholder="City">
+
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Flyning to</span>
-                                    <input class="form-control" type="text" name="to_Location" placeholder="City or airport">
+                                    <input class="form-control" type="text" name="to_Location" placeholder="City">
                                 </div>
                             </div>
 
@@ -115,3 +99,4 @@
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>
+

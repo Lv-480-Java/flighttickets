@@ -1,10 +1,12 @@
 package com.softserve.model;
 
 import com.softserve.dao.*;
-import com.softserve.entity.Root;
+import com.softserve.entity.Location;
+import com.softserve.entity.Route;
 import com.softserve.entity.User;
 import com.softserve.exceptions.MissingRootException;
 import com.softserve.exceptions.ValidationException;
+import com.softserve.sort.SortCity;
 import validation.LoginValidator;
 import validation.RegisterValidator;
 import validation.RootValidator;
@@ -12,6 +14,7 @@ import validation.UserValidator;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.TreeSet;
 
 public class Service {
 
@@ -24,6 +27,8 @@ public class Service {
     private DaoGetRoots daoGetRoots;
     private DaoGetDirectRoot daoGetDirectRoot;
     private RootValidator rootValidator;
+    private DaoMultiCity daoMultiCity;
+    private SortCity sortCity;
 
     public Service() {
 
@@ -51,17 +56,25 @@ public class Service {
         return user;
     }
 
-    public List<Root> getDeparutres() throws SQLException {
+    public TreeSet<String> getDeparutres() throws SQLException {
         daoGetRoots = new DaoGetRoots();
-        List<Root> rootList = daoGetRoots.getRoots();
-        return rootList;
+        sortCity = new SortCity();
+        List<Route> routeList = daoGetRoots.getRoots();
+        TreeSet<String> sortedCities = sortCity.uniqueCity(routeList);
+        return sortedCities;
     }
 
-    public Root takeDirectRoot(String from_Location, String to_Location) throws SQLException, MissingRootException {
+    public Route takeDirectRoot(String from_Location, String to_Location) throws SQLException, MissingRootException {
         daoGetDirectRoot = new DaoGetDirectRoot();
-        rootValidator=new RootValidator();
-        Root root = daoGetDirectRoot.getDirectRoot(from_Location, to_Location);
-        rootValidator.validate(root);
-        return root;
+        rootValidator = new RootValidator();
+        Route route = daoGetDirectRoot.getDirectRoot(from_Location, to_Location);
+        rootValidator.validate(route);
+        return route;
+    }
+
+    public Location takeMultiCity(String from_Location, String to_Location) throws SQLException, MissingRootException {
+        daoMultiCity = new DaoMultiCity();
+        Location location = daoMultiCity.getMultiCity(from_Location, to_Location);
+        return location;
     }
 }

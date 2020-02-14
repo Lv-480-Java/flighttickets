@@ -1,20 +1,21 @@
 package com.softserve.entity;
+
 import java.util.Objects;
 
-public class Root {
+public class Route {
     private int id_root;
     private String from_Location;
     private String to_Location;
     private int distance;
 
-    public Root(String from_Location, String to_Location, int distance) {
+    public Route(String from_Location, String to_Location, int distance) {
         this.from_Location = from_Location;
         this.to_Location = to_Location;
         this.distance = distance;
     }
 
-    public Root(int id_root, String from_Location, String to_Location, int distance) {
-        this.id_root=id_root;
+    public Route(int id_root, String from_Location, String to_Location, int distance) {
+        this.id_root = id_root;
         this.from_Location = from_Location;
         this.to_Location = to_Location;
         this.distance = distance;
@@ -56,10 +57,10 @@ public class Root {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Root root = (Root) o;
-        return distance == root.distance &&
-                Objects.equals(from_Location, root.from_Location) &&
-                Objects.equals(to_Location, root.to_Location);
+        Route route = (Route) o;
+        return distance == route.distance &&
+                Objects.equals(from_Location, route.from_Location) &&
+                Objects.equals(to_Location, route.to_Location);
     }
 
     @Override

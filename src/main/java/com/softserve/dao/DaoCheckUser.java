@@ -14,9 +14,9 @@ public class DaoCheckUser {
         String sql = "SELECT * FROM client WHERE email = ?";
         connection = DatabaseConnection.getInstance().getConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1,user.getEmail());
+        statement.setString(1, user.getEmail());
         ResultSet result = statement.executeQuery();
-        User userFromDatabase=null;
+        User userFromDatabase = null;
         if (result.next()) {
             userFromDatabase = new User(result.getString("email"));
         }

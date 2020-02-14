@@ -27,14 +27,12 @@
     <title>Order tickets</title>
 </head>
 <body>
-<center>
-    <h1>Proposed roots</h1>
-</center>
 <div align="center">
-    <h1>Select please</h1>
-    <b>${root.from_Location} (${root.to_Location}) (${root.distance})</b>
+    <h2>Select route</h2>
+    <b>${route.from_Location} (${route.to_Location}) (${route.distance})</b>
+    <br><br>
+    <b>${location.from_locationStart} (${location.roots_to_location}) (${location.roots_distance}) (${location.transfer}) (${location.to_location}) (${location.distance})</b>
     <br><br>
 </div>
 </body>
 </html>
-<html lang="en">

@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.Objects;
 
 public class User {
-private int id;
-private String firstName;
-private String lastName;
-private String pass;
-private String email;
-public List<User> checkDuplicate=new ArrayList<>();
+    private int id;
+    private String firstName;
+    private String lastName;
+    private String pass;
+    private String email;
+    public List<User> checkDuplicate = new ArrayList<>();
 
-    public User(){
+    public User() {
     }
 
     public User(String email) {
@@ -28,7 +28,7 @@ public List<User> checkDuplicate=new ArrayList<>();
         this.firstName = firstName;
         this.lastName = lastName;
         this.pass = pass;
-        this.email=email;
+        this.email = email;
     }
 
     public int getId() {
