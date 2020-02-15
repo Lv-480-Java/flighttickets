@@ -37,8 +37,20 @@
         <servlet-class>com.softserve.controller.ServletPlane</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Servletresult</servlet-name>
-        <servlet-class>com.softserve.controller.ServletResult</servlet-class>
+    <servlet-name>Servletresult</servlet-name>
+    <servlet-class>com.softserve.controller.ServletResult</servlet-class>
+  </servlet>
+    <servlet>
+        <servlet-name>Servletmulticity</servlet-name>
+        <servlet-class>com.softserve.controller.ServletMulticity</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Servletplanemulti</servlet-name>
+        <servlet-class>com.softserve.controller.ServletPlaneMulti</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Servletresultmulti</servlet-name>
+        <servlet-class>com.softserve.controller.ServletResultMulti</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Servletregister</servlet-name>
@@ -59,5 +71,17 @@
     <servlet-mapping>
         <servlet-name>Servletresult</servlet-name>
         <url-pattern>/result</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Servletmulticity</servlet-name>
+        <url-pattern>/multi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Servletplanemulti</servlet-name>
+        <url-pattern>/multiplane</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Servletresultmulti</servlet-name>
+        <url-pattern>/multiresult</url-pattern>
     </servlet-mapping>
 </web-app>

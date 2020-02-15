@@ -12,7 +12,7 @@
 </head>
 <body>
 <div style="text-align: center">
-    <h1>Route order panel</h1>
+    <h1>Plane order panel</h1>
     <b>${user.firstName} (${user.lastName})</b>
     <br><br>
     <a href="http://localhost:8080/flighttickets_war_exploded/">Logout</a>
@@ -28,55 +28,27 @@
 </head>
 <body>
 <div align="center">
-    <h2>Direct route</h2>
+    <h2>Select plane</h2>
     <table border="1" cellpadding="5">
         <tr>
-            <th>Id_route</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Distance</th>
+            <th>Id_plane</th>
+            <th>Type</th>
+            <th>Comfort</th>
+            <th>Price</th>
             <th>Action</th>
+
         </tr>
-        <c:forEach var="route" items="${routes}">
+        <c:forEach var="plane" items="${planeList}">
             <tr>
-                <td><c:out value="${route.id_root}" /></td>
-                <td><c:out value="${route.from_Location}" /></td>
-                <td><c:out value="${route.to_Location}" /></td>
-                <td><c:out value="${route.distance}" /></td>
+                <td><c:out value="${plane.id_plane}" /></td>
+                <td><c:out value="${plane.name_type}" /></td>
+                <td><c:out value="${plane.comfort}" /></td>
+                <td><c:out value="${plane.price}" /></td>
                 <td>
-                    <a href="http://localhost:8080/flighttickets_war_exploded/plane?id_root=<c:out value='${route.id_root}' />">add</a>
+                    <a href="http://localhost:8080/flighttickets_war_exploded/multiresult?id_plane=<c:out value='${plane.id_plane}' />">add</a>
                 </td>
             </tr>
         </c:forEach>
-    </table>
-    <br><br>
-    <table border="1" cellpadding="5">
-        <c:if test="${location == null}">
-            <h2>No multicity transfer</h2>
-        </c:if>
-            <c:if test="${location!= null}">
-                <h2>Multicity transfer</h2>
-        <tr>
-            <th>From</th>
-            <th>To</th>
-            <th>Distance</th>
-            <th>Id_route</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Distance</th>
-        </tr>
-        <tr>
-        <td>${location.from_locationStart}</td>
-        <td>${location.roots_to_location}</td>
-        <td>${location.roots_distance}</td>
-        <td>${location.transfer}</td>
-        <td>${location.to_location}</td>
-        <td>${location.distance}</td>
-            <td>
-                <a href="http://localhost:8080/flighttickets_war_exploded/multiplane?id_root=<c:out value='${route.id_root}' />">add</a>
-            </td>
-        </tr>
-</c:if>
     </table>
 </div>
 </body>

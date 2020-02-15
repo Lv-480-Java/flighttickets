@@ -25,7 +25,7 @@ public class ServletRegister extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        new ServletRegister();
+
         doGet(request, response);
     }
 

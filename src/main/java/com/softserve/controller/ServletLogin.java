@@ -29,7 +29,6 @@ public class ServletLogin extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        new ServletRegister();
         String email = request.getParameter("email");
         String password = request.getParameter("pass");
         try {
