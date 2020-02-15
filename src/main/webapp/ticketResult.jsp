@@ -12,7 +12,7 @@
 </head>
 <body>
 <div style="text-align: center">
-    <h1>Route order panel</h1>
+    <h1>Plane order panel</h1>
     <b>${user.firstName} (${user.lastName})</b>
     <br><br>
     <a href="http://localhost:8080/flighttickets_war_exploded/">Logout</a>
@@ -28,50 +28,59 @@
 </head>
 <body>
 <div align="center">
-    <h2>Select route</h2>
+    <h2>Select plane</h2>
     <table border="1" cellpadding="5">
         <tr>
-            <th>Id_route</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Distance</th>
-            <th>Action</th>
+            <th>Id_plane</th>
+            <th>Type</th>
+            <th>Comfort</th>
+            <th>Price</th>
         </tr>
-        <c:forEach var="route" items="${routes}">
+        <c:forEach var="plane" items="${planeList}">
             <tr>
-                <td><c:out value="${route.id_root}" /></td>
-                <td><c:out value="${route.from_Location}" /></td>
-                <td><c:out value="${route.to_Location}" /></td>
-                <td><c:out value="${route.distance}" /></td>
-                <td>
-                    <a href="http://localhost:8080/flighttickets_war_exploded/plane?id_root=<c:out value='${route.id_root}' />">add</a>
-                </td>
+                <td><c:out value="${plane.id_plane}" /></td>
+                <td><c:out value="${plane.name_type}" /></td>
+                <td><c:out value="${plane.comfort}" /></td>
+                <td><c:out value="${plane.price}" /></td>
             </tr>
         </c:forEach>
     </table>
     <br><br>
-    <table border="1" cellpadding="5">
-        <tr>
-            <th>From</th>
-            <th>To</th>
-            <th>Distance</th>
-            <th>Id_route</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Distance</th>
-        </tr>
-        <tr>
-        <td>${location.from_locationStart}</td>
-        <td>${location.roots_to_location}</td>
-        <td>${location.roots_distance}</td>
-        <td>${location.transfer}</td>
-        <td>${location.to_location}</td>
-        <td>${location.distance}</td>
-            <td>
-                <a href="http://localhost:8080/flighttickets_war_exploded/plane?id=<c:out value='${route.id_root}' />">add</a>
-            </td>
-        </tr>
-    </table>
+    <b>${location.from_locationStart} (${location.roots_to_location}) (${location.roots_distance}) (${location.transfer}) (${location.to_location}) (${location.distance})</b>
+    <br><br>
 </div>
 </body>
+</html>
+</head>
+<body>
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="bs-example">
+                    <table class="table table-dark">
+                        <thead>
+                        <tr>
+                            <th>City</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="route" items="${routeList}">
+                            <tr>
+                                <td><c:out value="${route}"/></td>
+
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="booking-form">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
 </html>

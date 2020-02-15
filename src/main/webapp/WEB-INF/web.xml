@@ -15,7 +15,6 @@
         <param-name>jdbcUsername</param-name>
         <param-value>route</param-value>
     </context-param>
-
     <context-param>
         <param-name>jdbcPassword</param-name>
         <param-value>boris21352</param-value>
@@ -25,7 +24,6 @@
     <servlet-name>Servletregister</servlet-name>
     <servlet-class>com.softserve.controller.ServletRegister</servlet-class>
 </servlet>
-
     <servlet>
         <servlet-name>Servletlogin</servlet-name>
         <servlet-class>com.softserve.controller.ServletLogin</servlet-class>
@@ -34,12 +32,18 @@
         <servlet-name>Servletorder</servlet-name>
         <servlet-class>com.softserve.controller.ServletOrder</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>Servletplane</servlet-name>
+        <servlet-class>com.softserve.controller.ServletPlane</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Servletresult</servlet-name>
+        <servlet-class>com.softserve.controller.ServletResult</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servletregister</servlet-name>
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>Servletlogin</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -48,5 +52,12 @@
         <servlet-name>Servletorder</servlet-name>
         <url-pattern>/order</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>Servletplane</servlet-name>
+        <url-pattern>/plane</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Servletresult</servlet-name>
+        <url-pattern>/result</url-pattern>
+    </servlet-mapping>
 </web-app>

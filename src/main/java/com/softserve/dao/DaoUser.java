@@ -1,7 +1,6 @@
 package com.softserve.dao;
 
 import com.softserve.entity.User;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

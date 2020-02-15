@@ -1,9 +1,10 @@
 package com.softserve.controller;
 
-import com.softserve.entity.Location;
-import com.softserve.entity.Route;
+import com.softserve.entity.OrderCost;
+import com.softserve.entity.Plane;
 import com.softserve.exceptions.MissingRootException;
-import com.softserve.model.Service;
+import com.softserve.model.ServiceOrder;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,12 +14,14 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+public class ServletResult extends HttpServlet {
 
-public class ServletOrder extends HttpServlet {
-    private Service serviceServlet;
+    private ServiceOrder serviceOrder;
+    private OrderCost orderCost;
 
-    public ServletOrder() {
-        this.serviceServlet = new Service();
+    public ServletResult() {
+        this.orderCost = new OrderCost();
+        this.serviceOrder = new ServiceOrder();
     }
 
     @Override
@@ -28,17 +31,12 @@ public class ServletOrder extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        new ServletRegister();
-        String from_Location = request.getParameter("from_Location");
-        String to_Location = request.getParameter("to_Location");
+        int Id_plane = Integer.parseInt(request.getParameter("id_plane"));
         try {
-
-         List<Route> routes = serviceServlet.takeDirectRoot(from_Location, to_Location);
-            request.setAttribute("routes", routes);
-            Location location = serviceServlet.takeMultiCity(from_Location, to_Location);
-            request.setAttribute("location", location);
-
-            RequestDispatcher dispatcher = request.getRequestDispatcher("orderPlane.jsp");
+            orderCost.addPlane(Id_plane);
+            List<Plane> planeList = serviceOrder.getPlanes();
+            request.setAttribute("planeList", planeList);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("ticketResult.jsp");
             dispatcher.forward(request, response);
         } catch (MissingRootException | SQLException exc) {
 
@@ -46,11 +44,5 @@ public class ServletOrder extends HttpServlet {
             requestDispatcher.forward(request, response);
         }
 
-
     }
-
 }
-
-
-
-

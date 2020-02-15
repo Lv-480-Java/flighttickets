@@ -10,8 +10,8 @@
 </head>
 <body>
 <center>
-    <h1>Flight not exist</h1>
-    <h2><a href="javascript:history.back()"> <button type="submit" class="w3-btn w3-green w3-round-large w3-margin-bottom">Please select another</button></a></h2>
+    <h1>Flight does not exist</h1>
+    <h2><a href="javascript:history.back()"> <button type="submit" class="w3-btn w3-green w3-round-large w3-margin-bottom">Type city from the list</button></a></h2>
 </center>
 </body>
 </html>

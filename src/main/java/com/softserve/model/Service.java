@@ -64,10 +64,13 @@ public class Service {
         return sortedCities;
     }
 
-    public Route takeDirectRoot(String from_Location, String to_Location) throws SQLException, MissingRootException {
+    public List<Route> takeDirectRoot(String from_Location, String to_Location) throws SQLException, MissingRootException {
         daoGetDirectRoot = new DaoGetDirectRoot();
         rootValidator = new RootValidator();
-        Route route = daoGetDirectRoot.getDirectRoot(from_Location, to_Location);
+       List<Route> route = daoGetDirectRoot.getDirectRoot(from_Location, to_Location);
+       if(route.size()==0){
+        route=daoGetDirectRoot.getApproxRoute(from_Location,to_Location);
+       }
         rootValidator.validate(route);
         return route;
     }
