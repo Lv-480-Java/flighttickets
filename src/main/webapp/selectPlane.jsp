@@ -45,7 +45,7 @@
                 <td><c:out value="${plane.comfort}" /></td>
                 <td><c:out value="${plane.price}" /></td>
                 <td>
-                    <a href="http://localhost:8080/flighttickets_war_exploded/plane?id_plane=<c:out value='${plane.id_plane}' />">add</a>
+                    <a href="http://localhost:8080/flighttickets_war_exploded/result?id_plane=<c:out value='${plane.id_plane}' />">add</a>
                 </td>
             </tr>
         </c:forEach>

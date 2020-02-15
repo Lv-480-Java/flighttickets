@@ -1,11 +1,8 @@
 package com.softserve.controller;
 
-import com.softserve.entity.Location;
-import com.softserve.entity.OrderCost;
+import com.softserve.model.ServiceCost;
 import com.softserve.entity.Plane;
-import com.softserve.entity.Route;
 import com.softserve.exceptions.MissingRootException;
-import com.softserve.model.Service;
 import com.softserve.model.ServiceOrder;
 
 import javax.servlet.RequestDispatcher;
@@ -20,9 +17,9 @@ import java.util.List;
 
 public class ServletPlane extends HttpServlet {
    private ServiceOrder serviceOrder;
-   private OrderCost orderCost;
+   private ServiceCost serviceCost;
     public ServletPlane() {
-        this.orderCost=new OrderCost();
+        this.serviceCost =new ServiceCost();
         this.serviceOrder=new ServiceOrder();
     }
 
@@ -36,7 +33,9 @@ public class ServletPlane extends HttpServlet {
 
         int Id_route = Integer.parseInt(request.getParameter("id_root"));
        try{
-        orderCost.addRoute(Id_route);
+           ServiceCost.direct.clear();
+           ServiceCost.planes.clear();
+           serviceCost.addRoute(Id_route);
            List<Plane> planeList=serviceOrder.getPlanes();
            request.setAttribute("planeList",planeList);
             RequestDispatcher dispatcher = request.getRequestDispatcher("selectPlane.jsp");

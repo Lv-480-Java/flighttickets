@@ -52,21 +52,19 @@ public class DaoOrder {
         return planeList;
     }
 
-    public List<Plane> choosePlanes() throws SQLException {
-        List<Plane> choosePlane = new ArrayList<>();
+    public Plane choosePlane(int id) throws SQLException {
+
         String sql = "SELECT * FROM plane WHERE id_plane = ?";
         connection = DatabaseConnection.getInstance().getConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
-        ResultSet result = statement.executeQuery();
+        statement.setInt(1, id);
 
-        while (result.next()) {
-            int id = result.getInt("id_plane");
-            String name_type = result.getString("name_type");
-            float comfort = result.getFloat("comfort");
-            float price = result.getFloat("price");
-            Plane plane = new Plane(id, name_type, comfort, price);
-            choosePlane.add(plane);
+        ResultSet result = statement.executeQuery();
+        Plane plane = null;
+        if (result.next()) {
+           plane = new Plane(result.getInt("id_plane"), result.getString("name_type"), result.getFloat("comfort"),result.getFloat("price"));
         }
-        return choosePlane;
+        return plane;
+
     }
 }

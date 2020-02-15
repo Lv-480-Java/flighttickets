@@ -24,27 +24,12 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <title>Tickets</title>
-    <title>Order tickets</title>
+    <title>Your order</title>
 </head>
 <body>
 <div align="center">
-    <h2>Select plane</h2>
-    <table border="1" cellpadding="5">
-        <tr>
-            <th>Id_plane</th>
-            <th>Type</th>
-            <th>Comfort</th>
-            <th>Price</th>
-        </tr>
-        <c:forEach var="plane" items="${planeList}">
-            <tr>
-                <td><c:out value="${plane.id_plane}" /></td>
-                <td><c:out value="${plane.name_type}" /></td>
-                <td><c:out value="${plane.comfort}" /></td>
-                <td><c:out value="${plane.price}" /></td>
-            </tr>
-        </c:forEach>
-    </table>
+    <h2>Thanks have a nice flight</h2>
+    <b>${order.route} (${order.cost})</b>
     <br><br>
     <b>${location.from_locationStart} (${location.roots_to_location}) (${location.roots_distance}) (${location.transfer}) (${location.to_location}) (${location.distance})</b>
     <br><br>

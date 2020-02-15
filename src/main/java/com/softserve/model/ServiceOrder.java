@@ -23,4 +23,8 @@ public class ServiceOrder {
         List<Plane> planeList = daoOrder.getPlanes();
         return planeList;
     }
+    public Plane choosePlane(int id) throws SQLException {
+        Plane plane=daoOrder.choosePlane(id);
+        return plane;
+    }
 }
