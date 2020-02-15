@@ -28,44 +28,10 @@
 </head>
 <body>
 <div align="center">
-    <h2>Thanks have a nice flight</h2>
+    <h2> Have a nice flight</h2>
     <b>${order.route} (${order.cost})</b>
-    <br><br>
-    <b>${location.from_locationStart} (${location.roots_to_location}) (${location.roots_distance}) (${location.transfer}) (${location.to_location}) (${location.distance})</b>
     <br><br>
 </div>
 </body>
 </html>
-</head>
-<body>
-<div id="booking" class="section">
-    <div class="section-center">
-        <div class="container">
-            <div class="row">
-                <div class="bs-example">
-                    <table class="table table-dark">
-                        <thead>
-                        <tr>
-                            <th>City</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="route" items="${routeList}">
-                            <tr>
-                                <td><c:out value="${route}"/></td>
 
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="booking-form">
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-
-</html>

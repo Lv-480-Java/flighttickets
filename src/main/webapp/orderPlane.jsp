@@ -28,7 +28,7 @@
 </head>
 <body>
 <div align="center">
-    <h2>Select route</h2>
+    <h2>Direct route</h2>
     <table border="1" cellpadding="5">
         <tr>
             <th>Id_route</th>
@@ -51,6 +51,11 @@
     </table>
     <br><br>
     <table border="1" cellpadding="5">
+        <c:if test="${location == null}">
+            <h2>No multicity transfer</h2>
+        </c:if>
+            <c:if test="${location!= null}">
+                <h2>Multicity transfer</h2>
         <tr>
             <th>From</th>
             <th>To</th>
@@ -71,6 +76,7 @@
                 <a href="http://localhost:8080/flighttickets_war_exploded/plane?id=<c:out value='${route.id_root}' />">add</a>
             </td>
         </tr>
+</c:if>
     </table>
 </div>
 </body>
