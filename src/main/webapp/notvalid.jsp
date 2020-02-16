@@ -8,7 +8,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <title>Error</title>
 </head>
-<body>
+<body style = "background: red">
 <center>
     <h1>Please enter correct data</h1>
     <h2><a href="http://localhost:8080/flighttickets_war_exploded/"><button type="submit" class="w3-btn w3-green w3-round-large w3-margin-bottom">Click</button></a></h2>

@@ -6,6 +6,7 @@
 <head>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
     <title>Tickets</title>
     <meta charset="utf-8">
     <title>Order panel flight tickets</title>
@@ -26,7 +27,7 @@
     <title>Tickets</title>
     <title>Order tickets</title>
 </head>
-<body>
+<body style = "background: #f0ad4e">
 <div align="center">
     <h2>Direct route</h2>
     <table border="1" cellpadding="5">

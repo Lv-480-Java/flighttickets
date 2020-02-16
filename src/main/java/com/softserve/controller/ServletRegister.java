@@ -3,7 +3,8 @@ package com.softserve.controller;
 import com.softserve.entity.User;
 import com.softserve.exceptions.DuplicateException;
 import com.softserve.exceptions.ValidationException;
-import com.softserve.model.Service;
+import com.softserve.model.ServiceRoute;
+import com.softserve.model.ServiceUser;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,10 +18,11 @@ import java.util.TreeSet;
 
 public class ServletRegister extends HttpServlet {
 
-    private Service serviceServlet;
-
+    private ServiceUser serviceUserServlet;
+    private ServiceRoute serviceRoute;
     public ServletRegister() {
-        this.serviceServlet = new Service();
+        this.serviceUserServlet = new ServiceUser();
+        this.serviceRoute=new ServiceRoute();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -54,9 +56,9 @@ public class ServletRegister extends HttpServlet {
 
         User userRegister = new User(firstName, lastName, pass, email);
         try {
-            serviceServlet.chekcClient(userRegister);
-            serviceServlet.insertClient(userRegister);
-            TreeSet<String> routeList = serviceServlet.getDeparutres();
+            serviceUserServlet.chekcClient(userRegister);
+            serviceUserServlet.insertClient(userRegister);
+            TreeSet<String> routeList = serviceRoute.getDeparutres();
 
             request.setAttribute("routeList", routeList);
             HttpSession session = request.getSession();

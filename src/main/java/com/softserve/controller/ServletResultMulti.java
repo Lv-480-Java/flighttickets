@@ -3,7 +3,7 @@ package com.softserve.controller;
 import com.softserve.entity.Order;
 import com.softserve.exceptions.MissingRootException;
 import com.softserve.model.ServiceCost;
-import com.softserve.model.ServiceOrder;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,12 +15,12 @@ import java.sql.SQLException;
 
 public class ServletResultMulti extends HttpServlet {
 
-    private ServiceOrder serviceOrder;
+
     private ServiceCost serviceCost;
 
     public ServletResultMulti() {
         this.serviceCost = new ServiceCost();
-        this.serviceOrder = new ServiceOrder();
+
     }
 
     @Override

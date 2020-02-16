@@ -12,12 +12,12 @@
 </head>
 <body>
 <div style="text-align: center">
-    <h1>Plane order panel</h1>
+    <h1>Order is ready</h1>
     <b>${user.firstName} (${user.lastName})</b>
     <br><br>
     <a href="http://localhost:8080/flighttickets_war_exploded/">Logout</a>
 </div>
-</body>
+<body style = "background: #f0ad4e">
 </html>
 <html>
 <head>

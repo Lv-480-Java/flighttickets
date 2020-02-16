@@ -1,9 +1,9 @@
 package com.softserve.controller;
 
-
 import com.softserve.entity.User;
 import com.softserve.exceptions.LoginException;
-import com.softserve.model.Service;
+import com.softserve.model.ServiceRoute;
+import com.softserve.model.ServiceUser;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,10 +16,11 @@ import java.util.TreeSet;
 
 
 public class ServletLogin extends HttpServlet {
-    private Service serviceServlet;
-
+    private ServiceUser serviceUserServlet;
+    private ServiceRoute serviceRoute;
     public ServletLogin() {
-        this.serviceServlet = new Service();
+        this.serviceUserServlet = new ServiceUser();
+        this.serviceRoute=new ServiceRoute();
     }
 
     @Override
@@ -32,8 +33,8 @@ public class ServletLogin extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("pass");
         try {
-            User user = serviceServlet.getLogin(email, password);
-            TreeSet<String> routeList = serviceServlet.getDeparutres();
+            User user = serviceUserServlet.getLogin(email, password);
+            TreeSet<String> routeList = serviceRoute.getDeparutres();
             request.setAttribute("routeList", routeList);
 
             HttpSession session = request.getSession();

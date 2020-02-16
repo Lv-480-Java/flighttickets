@@ -3,8 +3,8 @@ package com.softserve.controller;
 import com.softserve.entity.Location;
 import com.softserve.entity.Route;
 import com.softserve.exceptions.MissingRootException;
-import com.softserve.model.Service;
 import com.softserve.model.ServiceCost;
+import com.softserve.model.ServiceRoute;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,10 +17,10 @@ import java.util.List;
 
 
 public class ServletOrder extends HttpServlet {
-    private Service serviceServlet;
+    private ServiceRoute serviceRoute;
 
     public ServletOrder() {
-        this.serviceServlet = new Service();
+        this.serviceRoute = new ServiceRoute();
     }
 
     @Override
@@ -33,11 +33,11 @@ public class ServletOrder extends HttpServlet {
         String from_Location = request.getParameter("from_Location");
         String to_Location = request.getParameter("to_Location");
         try {
-
-         List<Route> routes = serviceServlet.takeDirectRoot(from_Location, to_Location);
-            request.setAttribute("routes", routes);
-            Location location = serviceServlet.takeMultiCity(from_Location, to_Location);
+            Location location = serviceRoute.takeMultiCity(from_Location, to_Location);
             ServiceCost.multicity.add(location);
+            List<Route> routes = serviceRoute.takeDirectRoot(from_Location, to_Location);
+            request.setAttribute("routes", routes);
+
             request.setAttribute("location", location);
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("orderPlane.jsp");

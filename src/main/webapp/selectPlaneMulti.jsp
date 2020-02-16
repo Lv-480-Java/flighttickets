@@ -26,7 +26,7 @@
     <title>Tickets</title>
     <title>Order tickets</title>
 </head>
-<body>
+<body style = "background: #f0ad4e">
 <div align="center">
     <h2>Select plane</h2>
     <table border="1" cellpadding="5">

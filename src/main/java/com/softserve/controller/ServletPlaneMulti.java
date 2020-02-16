@@ -30,8 +30,7 @@ public class ServletPlaneMulti extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try{
-            ServiceCost.direct.clear();
-            ServiceCost.planes.clear();
+
             List<Plane> planeList=serviceOrder.getPlanes();
             request.setAttribute("planeList",planeList);
             RequestDispatcher dispatcher = request.getRequestDispatcher("selectPlaneMulti.jsp");
