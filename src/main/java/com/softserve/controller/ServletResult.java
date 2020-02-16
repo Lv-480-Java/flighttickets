@@ -1,8 +1,8 @@
 package com.softserve.controller;
 
 import com.softserve.entity.Order;
-import com.softserve.model.ServiceCost;
 import com.softserve.exceptions.MissingRootException;
+import com.softserve.model.ServiceCost;
 import com.softserve.model.ServiceOrder;
 
 import javax.servlet.RequestDispatcher;
@@ -34,8 +34,8 @@ public class ServletResult extends HttpServlet {
         int Id_plane = Integer.parseInt(request.getParameter("id_plane"));
         try {
             serviceCost.addPlane(Id_plane);
-            Order order= serviceCost.calculatePrice();
-            request.setAttribute("order",order);
+            Order order = serviceCost.calculatePrice();
+            request.setAttribute("order", order);
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("ticketResult.jsp");
             dispatcher.forward(request, response);

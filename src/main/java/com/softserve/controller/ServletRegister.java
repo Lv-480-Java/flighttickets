@@ -1,11 +1,11 @@
 package com.softserve.controller;
 
+
 import com.softserve.entity.User;
 import com.softserve.exceptions.DuplicateException;
 import com.softserve.exceptions.ValidationException;
 import com.softserve.model.ServiceRoute;
 import com.softserve.model.ServiceUser;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,13 +16,15 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.TreeSet;
 
+
 public class ServletRegister extends HttpServlet {
 
     private ServiceUser serviceUserServlet;
     private ServiceRoute serviceRoute;
+
     public ServletRegister() {
         this.serviceUserServlet = new ServiceUser();
-        this.serviceRoute=new ServiceRoute();
+        this.serviceRoute = new ServiceRoute();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -66,7 +68,6 @@ public class ServletRegister extends HttpServlet {
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("loginSuccess.jsp");
             requestDispatcher.forward(request, response);
-
         } catch (ValidationException userValidator) {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("notvalid.jsp");
             requestDispatcher.forward(request, response);

@@ -3,8 +3,10 @@ package com.softserve.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 public class DatabaseConnection {
+    private static java.util.logging.Logger logger = Logger.getLogger(DatabaseConnection.class.getName());
     private Connection connection;
     private static DatabaseConnection instance;
 
@@ -14,7 +16,7 @@ public class DatabaseConnection {
             this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/flighttickets?" + "serverTimezone=UTC&amp" +
                     "useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false", "root", "boris21352");
         } catch (ClassNotFoundException ex) {
-            System.out.println("Database Connection Creation Failed : " + ex.getMessage());
+            logger.info("Database Connection Creation Failed : " + ex.getMessage());
         }
     }
 

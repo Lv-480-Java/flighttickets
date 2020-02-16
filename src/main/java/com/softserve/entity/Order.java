@@ -3,8 +3,8 @@ package com.softserve.entity;
 import java.util.Objects;
 
 public class Order {
-private String route;
-private float cost;
+    private String route;
+    private float cost;
 
     public Order(String route, float cost) {
         this.route = route;

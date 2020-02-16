@@ -5,7 +5,6 @@ import com.softserve.entity.Order;
 import com.softserve.entity.Plane;
 import com.softserve.entity.Route;
 
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +12,9 @@ import java.util.List;
 
 public class ServiceCost {
 
-  public static List<Location> multicity=new ArrayList<>();
-  public  static List<Route> direct = new ArrayList<>();
-  public  static List<Plane> planes = new ArrayList<>();
+    public static List<Location> multicity = new ArrayList<>();
+    public static List<Route> direct = new ArrayList<>();
+    public static List<Plane> planes = new ArrayList<>();
     ServiceOrder serviceOrder;
 
     public ServiceCost() {
@@ -55,31 +54,32 @@ public class ServiceCost {
 
         return new Order(routeFinal, ticketPrice);
     }
-public Order calculateMulti (){
-     String from_locationStart=null;
-     String roots_to_location=null;
-     int roots_distance=0;
-     String transfer=null;
-     String to_location=null;
-     int distance=0;
-     String routeFinal;
-     float comfort = 0;
-     float price = 0;
-     float ticketPrice;
-    for (Plane plane : planes) {
-        comfort = plane.getComfort();
-        price = plane.getPrice();
-    }
-    for (Location location : multicity) {
-        from_locationStart = location.getFrom_locationStart();
-        roots_to_location = location.getRoots_to_location();
-        roots_distance = location.getRoots_distance();
-        transfer=location.getTransfer();
-        to_location=location.getTo_location();
-        distance=location.getDistance();
-    }
-    routeFinal=from_locationStart+" - "+roots_to_location+" - "+transfer+" - "+to_location;
-    ticketPrice=(roots_distance+distance)*comfort*price;
-    return new Order(routeFinal,ticketPrice);
+
+    public Order calculateMulti() {
+        String from_locationStart = null;
+        String roots_to_location = null;
+        int roots_distance = 0;
+        String transfer = null;
+        String to_location = null;
+        int distance = 0;
+        String routeFinal;
+        float comfort = 0;
+        float price = 0;
+        float ticketPrice;
+        for (Plane plane : planes) {
+            comfort = plane.getComfort();
+            price = plane.getPrice();
+        }
+        for (Location location : multicity) {
+            from_locationStart = location.getFrom_locationStart();
+            roots_to_location = location.getRoots_to_location();
+            roots_distance = location.getRoots_distance();
+            transfer = location.getTransfer();
+            to_location = location.getTo_location();
+            distance = location.getDistance();
+        }
+        routeFinal = from_locationStart + " - " + roots_to_location + " - " + transfer + " - " + to_location;
+        ticketPrice = (roots_distance + distance) * comfort * price;
+        return new Order(routeFinal, ticketPrice);
     }
 }

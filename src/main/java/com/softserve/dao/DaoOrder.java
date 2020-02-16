@@ -2,21 +2,24 @@ package com.softserve.dao;
 
 import com.softserve.entity.Plane;
 import com.softserve.entity.Route;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class DaoOrder {
+    private static java.util.logging.Logger logger = Logger.getLogger(DaoGetRoute.class.getName());
     private static Connection connection;
 
     static {
         try {
             connection = DatabaseConnection.getInstance().getConnection();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.info("Lost connection with database");
         }
     }
 
@@ -62,7 +65,7 @@ public class DaoOrder {
         ResultSet result = statement.executeQuery();
         Plane plane = null;
         if (result.next()) {
-           plane = new Plane(result.getInt("id_plane"), result.getString("name_type"), result.getFloat("comfort"),result.getFloat("price"));
+            plane = new Plane(result.getInt("id_plane"), result.getString("name_type"), result.getFloat("comfort"), result.getFloat("price"));
         }
         return plane;
 

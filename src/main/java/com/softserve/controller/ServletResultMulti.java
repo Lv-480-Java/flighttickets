@@ -4,7 +4,6 @@ import com.softserve.entity.Order;
 import com.softserve.exceptions.MissingRootException;
 import com.softserve.model.ServiceCost;
 
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,8 +32,8 @@ public class ServletResultMulti extends HttpServlet {
         int Id_plane = Integer.parseInt(request.getParameter("id_plane"));
         try {
             serviceCost.addPlane(Id_plane);
-            Order order= serviceCost.calculateMulti();
-            request.setAttribute("order",order);
+            Order order = serviceCost.calculateMulti();
+            request.setAttribute("order", order);
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("ticketResultMulti.jsp");
             dispatcher.forward(request, response);

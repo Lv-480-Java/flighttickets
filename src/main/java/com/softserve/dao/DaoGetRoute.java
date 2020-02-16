@@ -10,15 +10,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
+import java.util.logging.Logger;
 
 public class DaoGetRoute {
     private static Connection connection;
+    private static Logger logger = Logger.getLogger(DaoGetRoute.class.getName());
 
     static {
         try {
             connection = DatabaseConnection.getInstance().getConnection();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.info("Lost connection with database");
         }
     }
 
@@ -36,7 +38,7 @@ public class DaoGetRoute {
             int distance = result.getInt("distance");
             Route route = new Route(id, from_location, to_location, distance);
             routeDirect.add(route);
-       break;
+            break;
         }
         return routeDirect;
     }
@@ -75,6 +77,7 @@ public class DaoGetRoute {
         }
         return location;
     }
+
     public TreeSet<String> getRoots() throws SQLException {
         TreeSet<String> routeList = new TreeSet<>();
         String sql = "SELECT * FROM city";

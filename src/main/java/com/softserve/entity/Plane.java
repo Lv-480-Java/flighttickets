@@ -1,11 +1,11 @@
 package com.softserve.entity;
 
 public class Plane {
-private int id_plane;
-private String name_type;
-private float comfort;
-private float price;
-private int root_id;
+    private int id_plane;
+    private String name_type;
+    private float comfort;
+    private float price;
+    private int root_id;
 
     public Plane(String name_type, float comfort, float price) {
         this.name_type = name_type;

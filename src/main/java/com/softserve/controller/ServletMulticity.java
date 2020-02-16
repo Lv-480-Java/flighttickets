@@ -1,7 +1,6 @@
 package com.softserve.controller;
 
 import com.softserve.exceptions.MissingRootException;
-import com.softserve.model.ServiceUser;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,7 +20,7 @@ public class ServletMulticity extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        try{
+        try {
             RequestDispatcher dispatcher = request.getRequestDispatcher("selectPlaneMulti.jsp");
             dispatcher.forward(request, response);
         } catch (MissingRootException ex) {

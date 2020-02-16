@@ -61,10 +61,10 @@
             <th>From</th>
             <th>To</th>
             <th>Distance</th>
-            <th>Id_route</th>
-            <th>From</th>
+            <th>Transfer</th>
             <th>To</th>
             <th>Distance</th>
+            <th>Action</th>
         </tr>
         <tr>
         <td>${location.from_locationStart}</td>

@@ -4,6 +4,7 @@ import com.softserve.entity.User;
 import com.softserve.exceptions.LoginException;
 import com.softserve.model.ServiceRoute;
 import com.softserve.model.ServiceUser;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,9 +19,10 @@ import java.util.TreeSet;
 public class ServletLogin extends HttpServlet {
     private ServiceUser serviceUserServlet;
     private ServiceRoute serviceRoute;
+
     public ServletLogin() {
         this.serviceUserServlet = new ServiceUser();
-        this.serviceRoute=new ServiceRoute();
+        this.serviceRoute = new ServiceRoute();
     }
 
     @Override

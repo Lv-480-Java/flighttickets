@@ -1,20 +1,23 @@
 package com.softserve.dao;
 
 import com.softserve.entity.User;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 
 public class DaoUser {
     private static Connection connection;
+    private static Logger logger = Logger.getLogger(DaoUser.class.getName());
 
     static {
         try {
             connection = DatabaseConnection.getInstance().getConnection();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.info("Lost connection with database");
         }
     }
 
@@ -30,6 +33,7 @@ public class DaoUser {
         statement.close();
         return rowInserted;
     }
+
     public User checkLogin(String email, String pass) throws SQLException {
         String sql = "SELECT * FROM client WHERE email = ? and pass = ?";
         connection = DatabaseConnection.getInstance().getConnection();
@@ -43,6 +47,7 @@ public class DaoUser {
         }
         return user;
     }
+
     public User checkRegisterEmail(User user) throws SQLException {
         String sql = "SELECT * FROM client WHERE email = ?";
         connection = DatabaseConnection.getInstance().getConnection();

@@ -17,9 +17,10 @@ import java.util.List;
 public class ServletPlaneMulti extends HttpServlet {
     private ServiceOrder serviceOrder;
     private ServiceCost serviceCost;
+
     public ServletPlaneMulti() {
-        this.serviceCost =new ServiceCost();
-        this.serviceOrder=new ServiceOrder();
+        this.serviceCost = new ServiceCost();
+        this.serviceOrder = new ServiceOrder();
     }
 
     @Override
@@ -29,10 +30,10 @@ public class ServletPlaneMulti extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try{
+        try {
 
-            List<Plane> planeList=serviceOrder.getPlanes();
-            request.setAttribute("planeList",planeList);
+            List<Plane> planeList = serviceOrder.getPlanes();
+            request.setAttribute("planeList", planeList);
             RequestDispatcher dispatcher = request.getRequestDispatcher("selectPlaneMulti.jsp");
             dispatcher.forward(request, response);
         } catch (MissingRootException | SQLException exc) {
